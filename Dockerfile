@@ -1,6 +1,5 @@
-FROM openjdk:11
-RUN mkdir /app
-COPY . /app
-WORKDIR /app
-RUN javac main.java
-CMD      ["java", "main.java"]
+FROM python:3.4-alpine
+ADD . /code
+WORKDIR /code
+RUN pip install -r requirements.txt
+CMD ["python", "app.py"]
